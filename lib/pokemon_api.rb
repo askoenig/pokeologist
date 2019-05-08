@@ -3,8 +3,9 @@
 require 'json'
 require 'rest-client'
 require 'pry'
+require 'tty-prompt'
 
-class GetPokemon
+# class GetPokemon
 
   def get_api()
     # url = "https://pokeapi.co/api/v2/pokemon?limit=151"
@@ -38,6 +39,7 @@ class GetPokemon
       # pokemon_info["#{id_or_name}"] = stats
       pokemon_info["#{id_or_name}"] = merged
     end
+    pokemon_info
   end
 
   def pokemon_types(id_or_name)
@@ -54,4 +56,4 @@ class GetPokemon
     end
   end
 
-end
+# end
