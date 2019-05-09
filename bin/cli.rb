@@ -17,7 +17,7 @@ $current_user = nil
   def get_user
     prompt = TTY::Prompt.new
     existing_name = prompt.ask("Oh of course, I'm sorry I didn't recognize you! Remind me what your name is?")
-    if User.all.find_by(name: existing_name)
+    if User.find_by(name: existing_name)
       puts "Welcome back, #{existing_name}!"
       $current_user = User.find_by(name: existing_name)
       pokemon_to_research
@@ -41,16 +41,24 @@ $current_user = nil
     prompt = TTY::Prompt.new
     if $current_user.teams.empty?
       puts "You're currently not researching any pokemon. Let's make you a team! Time to choose some Pokémon."
-      search_option = prompt.select("How would you like to search?", %w(Name Type Pokedex Stats))
+      search_option = prompt.select("How would you like to search?", %w(Name Type Pokédex Stats))
       if search_option == "Name"
-        name = prompt.ask("Please enter the name of the Pokêmon you would like to research:")
+        name = prompt.ask("Please enter the name of the Pokémon you would like to research:")
         found_pokemon = Pokemon.find_by(name: name)
         input = prompt.yes?("Add #{name} to your team?")
         if input == true
           binding.pry
-          $current_user.id.teams << found_pokemon
+          $current_user.teams = found_pokemon
         end
+      elsif search_option == "Type"
+        #Type
+      elsif search_option == "Pokédex"
+        #Pokedex
+      else search_option == "Stats"
+        #Reroute to substats
       end
+    else
+      #view team
     end
   end
 
