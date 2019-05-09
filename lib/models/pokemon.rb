@@ -50,10 +50,9 @@ class Pokemon < ActiveRecord::Base
     all.select {|pokemon| pokemon.type_1 == type || pokemon.type_2 == type}
   end
 
-  def method_name
-
+  def self.search_pokedex_number(user_pokedex_number)
+    all.select {|pokemon| pokemon.pokedex_number == user_pokedex_number}
   end
-
 
 
 
