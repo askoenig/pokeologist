@@ -59,9 +59,13 @@ $existing_name = nil
         find_pokemon_by_pokedex
       end
     else
-      input = prompt.select("What would you like to do?", %w(ViewTeam AddPokemon RemovePokemon))
-      if input == "ViewTeam"
-
+      input = prompt.select("What would you like to do?") do |menu|
+        menu.choice 'View Team', 1
+        menu.choice 'Add Pokemon',2
+        menu.choice 'Remove Pokemon',3
+        menu.choice 'Exít',4
+      end
+      if input == 1
         list_of_user_pokemon = $current_user.pokemons.map(&:name)
         choices = Hash.new
         list_of_user_pokemon.each.with_index(1) {|str, idx| choices[str.to_s] = idx}
@@ -76,7 +80,7 @@ $existing_name = nil
         puts "speed: #{pokemon_details.speed}"
         puts "type: #{pokemon_details.type_1} #{pokemon_details.type_2}"
         pokemon_to_research
-      elsif input == "AddPokemon"
+      elsif input == 2
         search_option = prompt.select("How would you like to search?", %w(Name Type Pokédex))
         if search_option == "Name"
           find_pokemon_by_name
@@ -85,7 +89,7 @@ $existing_name = nil
         else search_option == "Pokédex"
           find_pokemon_by_pokedex
         end
-      else input == "RemovePokemon"
+      elsif input == 3
         list_of_user_pokemon_to_delete = $current_user.pokemons.map(&:name)
         choices_to_delete = Hash.new
         list_of_user_pokemon_to_delete.each.with_index(1) {|str, idx| choices_to_delete[str.to_s] = idx}
@@ -96,6 +100,8 @@ $existing_name = nil
         pokemon_for_deletetion.delete
         $current_user.reload
         pokemon_to_research
+      else input == 4
+        get_or_create_user
       end
     end
 
