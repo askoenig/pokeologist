@@ -1,6 +1,8 @@
 # require 'pry'
 # require_relative '../config/environment.rb'
 Pokemon.delete_all
+User.delete_all
+Team.delete_all
 
 def update_pokemons
 
@@ -23,3 +25,8 @@ def update_pokemons
 end
 
 update_pokemons
+Team.create(user_id: 1, pokemon_id: 1, team_name: "dope")
+Team.create(user_id: 1, pokemon_id: 4, team_name: "dope2")
+Team.create(user_id: 1, pokemon_id: 7, team_name: "dope3")
+
+User.create(name: "Aaron", catchphrase: "Ay Ay Ron!")
