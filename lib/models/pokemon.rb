@@ -26,6 +26,20 @@ class Pokemon < ActiveRecord::Base
     all.min_by(&:hp)
   end
 
+  def self.highest_special_attack
+    all.max_by(&:special_att)
+  end
+
+  def self.lowest_special_attack
+    all.min_by(&:special_att)
+  end
+  def self.highest_special_defense
+    all.max_by(&:special_def)
+  end
+
+  def self.lowest_special_defense
+    all.min_by(&:special_def)
+  end
   def self.highest_speed
     all.max_by(&:speed)
   end
