@@ -12,7 +12,7 @@ From Terminal:
 1. Enter $ bundle install to install gems.
 2. Enter $ rake db:migrate to create the tables in you database.
 3. Enter $ rake db:seed to collect data from the Pokémon API and populate our tables.
-4. Enter $ ruby bin/cli.rb to run program
+4. Enter $ ruby bin/run.rb to run program
 5. (Optional) Open the file with your text editor of choice to make whatever edits you want.
 
 #User Interaction
