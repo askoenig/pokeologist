@@ -1,5 +1,4 @@
 class CreatePokemons < ActiveRecord::Migration[5.0]
-
   def change
     create_table :pokemons do |t|
     t.string :name
@@ -13,5 +12,4 @@ class CreatePokemons < ActiveRecord::Migration[5.0]
     t.string :type_2
     end
   end
-
 end
