@@ -1,32 +1,29 @@
-### NYSEE
-Keep track of the New York City destinations you have visited or add your own custom destinations. 
+### Pokeologist
+Navigate the original Kanto Pokédex stats & add or remove Pokémon from your customized team.
 
 ### VIDEO EXAMPLE
 Here's a link to a vid demo if you'd like to see the project in action:
 
-https://youtu.be/6XThxZj6M3k
+https://youtu.be/MAnm2MSRv2g
 
 ### TECH
 I built this project using:
 
 - Ruby
 - Ruby on Rails
-- Vanilla CSS
 
 
 ### Rails Setup
 
 git clone 
 
-cd NYSee
+cd Pokeologist
 
 bundle install 
 
 rails db:create db:migrate 
 
-rails s (start rails server) 
-
-Now you can should be able to go to the url endpoints
+ruby run.rb
 
 ### Creating A Rails Project
 The project was originally generated with these commands:
